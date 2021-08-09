@@ -9,5 +9,7 @@ terraform init
 terraform apply
 
 # applyされたインスタンスを破棄
+terraform destroy
+# or 
 terraform apply -destroy
 ```
