@@ -12,7 +12,7 @@ resource "aws_iam_role" "instance" {
 resource "aws_iam_role_policy" "instance_ssm" {
   name   = "instance_ssm"
   role   = aws_iam_role.instance.id
-  policy = data.aws_iam_policy.ec2_ssm.policy
+  policy = data.aws_iam_policy.ssm_core.policy
 }
 
 resource "aws_iam_instance_profile" "instance" {
