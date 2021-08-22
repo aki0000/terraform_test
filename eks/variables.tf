@@ -1,3 +1,6 @@
+data "aws_availability_zones" "available" {}
+
+
 variable "project" {
   default = "eks"
 }
@@ -9,6 +12,11 @@ variable "environment" {
 variable "vpc_cidr_block" {
   default = "10.0.0.0/16"
 }
+
+variable "num_subnets" {
+  default = 2
+}
+
 
 
 locals {
