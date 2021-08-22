@@ -29,5 +29,5 @@ locals {
   default_tags    = merge(local.base_tags, tomap({ "kubernetes.io/cluster/${local.cluster_name}" = "shared" }))
   base_name       = "${var.project}-${var.environment}"
   cluster_name    = "${local.base_name}-cluster"
-  cluster_version = "1.12"
+  cluster_version = "1.20"
 }
