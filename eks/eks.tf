@@ -1,17 +1,17 @@
 resource "aws_eks_cluster" "eks-cluster" {
-    name = "${local.cluster_name}"
-    role_arn = "${aws_iam_role.eks-master-role.arn}"
-    version = "${local.cluster_version}"
+  name     = local.cluster_name
+  role_arn = aws_iam_role.eks-master-role.arn
+  version  = local.cluster_version
 
-    vpc_config {
-        security_group_ids = ["${aws_security_group.eks-master.id}"]
-        subnet_ids ="${aws_subnet.subnet.*.id}"
-    }
+  vpc_config {
+    security_group_ids = ["${aws_security_group.eks-master.id}"]
+    subnet_ids         = aws_subnet.subnet.*.id
+  }
 
-    depends_on = [
-        "aws_iam_role_policy_attachment.eks-cluster-policy",
-        "aws_iam_role_policy_attachment.eks-service-policy",
-    ]
+  depends_on = [
+    "aws_iam_role_policy_attachment.eks-cluster-policy",
+    "aws_iam_role_policy_attachment.eks-service-policy",
+  ]
 }
 
 locals {

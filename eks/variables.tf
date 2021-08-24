@@ -17,7 +17,9 @@ variable "num_subnets" {
   default = 2
 }
 
-
+#variable "key_name" {
+#  default = "your_key_name"
+#}
 
 locals {
   base_tags = {
